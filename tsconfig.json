@@ -1,0 +1,40 @@
+{
+	"compilerOptions": {
+		/* Core */
+		"target": "es2016",
+		"module": "commonjs",
+		"rootDir": "./",
+		"outDir": "./dist",
+		"baseUrl": ".",
+		"paths": {
+            "@/*": ["./src/*"]
+        },
+		"allowJs": true,
+		"checkJs": true,
+
+		/* Module resolution */
+		"moduleResolution": "node",
+		"resolveJsonModule": true,
+		"esModuleInterop": true,
+		"types": ["node", "jest", "./global.d.ts"],
+
+		/* Checks */
+		"strict": true,
+		"alwaysStrict": true,
+		"strictNullChecks": true,
+		"strictFunctionTypes": true,
+		"strictBindCallApply": true,
+		"strictPropertyInitialization": true,
+		"noImplicitAny": true,
+		"noImplicitThis": true,
+		"noImplicitReturns": true,
+		"noFallthroughCasesInSwitch": true,
+		"forceConsistentCasingInFileNames": true,
+
+		/* Other */
+		"skipLibCheck": true,
+		"experimentalDecorators": true,
+		"plugins": [{ "transform": "typescript-transform-paths" }]
+	},
+	"exclude": ["node_modules", "coverage", "dist"]
+}

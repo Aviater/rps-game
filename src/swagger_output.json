@@ -1,0 +1,256 @@
+{
+	"openapi": "3.0.0",
+	"info": {
+		"version": "v1.0.0",
+		"title": "RPS Game",
+		"description": "A multiplayer rock, paper, scissors game."
+	},
+	"servers": [
+		{
+			"url": "http://localhost:3000",
+			"description": "Development server."
+		}
+	],
+	"paths": {
+		"/api/game": {
+			"post": {
+				"description": "Creates a new game.",
+				"responses": {
+					"201": {
+						"description": "Game created"
+					},
+					"400": {
+						"description": "Bad Request"
+					},
+					"500": {
+						"description": "Internal Server Error"
+					}
+				},
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"name": {
+										"type": "string",
+										"required": true,
+										"description": "The player's name",
+										"example": "John Doe"
+									}
+								}
+							}
+						}
+					}
+				}
+			},
+			"patch": {
+				"description": "Adds a player to the game and starts it.",
+				"responses": {
+					"200": {
+						"description": "Game started."
+					},
+					"400": {
+						"description": "Game ID is missing."
+					},
+					"403": {
+						"description": "Game has already started or has ended."
+					},
+					"404": {
+						"description": "Game not found."
+					},
+					"500": {
+						"description": "Internal Server Error"
+					}
+				},
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"name": {
+										"type": "string",
+										"required": true,
+										"description": "The player's name",
+										"example": "Jane Doe"
+									},
+									"gameId": {
+										"type": "string",
+										"required": true,
+										"description": "The game ID",
+										"example": "2d1716ff-a177-4e5f-ad56-a3fa15760af6"
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/api/game/move": {
+			"patch": {
+				"description": "Adds a player move to the game.",
+				"responses": {
+					"200": {
+						"description": "Player move added."
+					},
+					"403": {
+						"description": "Game has ended."
+					},
+					"404": {
+						"description": "Game or player not found."
+					},
+					"409": {
+						"description": "Waiting for second player or player has already made a move."
+					},
+					"500": {
+						"description": "Internal Server Error"
+					}
+				},
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"move": {
+										"type": "string",
+										"required": true,
+										"description": "The player's move",
+										"enum": [
+											"rock",
+											"paper",
+											"scissors"
+										],
+										"example": "paper"
+									},
+									"gameId": {
+										"type": "string",
+										"required": true,
+										"description": "The game ID",
+										"example": "2d1716ff-a177-4e5f-ad56-a3fa15760af6"
+									},
+									"playerId": {
+										"type": "string",
+										"required": true,
+										"description": "The player ID",
+										"example": "80f48906-b007-49a6-a031-328a51c73523"
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/api/game/{id}/results": {
+			"get": {
+				"description": "Determines the winner of the game.",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "The game ID",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"example": "2d1716ff-a177-4e5f-ad56-a3fa15760af6"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Returns the winner and loser of the game."
+					},
+					"403": {
+						"description": "Game has not started yet."
+					},
+					"404": {
+						"description": "Game not found."
+					},
+					"409": {
+						"description": "Waiting for all players to make a move."
+					},
+					"500": {
+						"description": "Internal Server Error"
+					}
+				}
+			}
+		},
+		"/api/player/game/{id}": {
+			"get": {
+				"description": "Get all player info of the game.",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"description": "The game ID",
+						"schema": {
+							"type": "string",
+							"example": "2d1716ff-a177-4e5f-ad56-a3fa15760af6"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "All player info."
+					},
+					"404": {
+						"description": "Game not found."
+					},
+					"500": {
+						"description": "Internal Server Error"
+					}
+				}
+			}
+		},
+		"/api/player/{id}": {
+			"get": {
+				"description": "Returns a specific player's info of the game.",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "The player ID",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"example": "80f48906-b007-49a6-a031-328a51c73523"
+						}
+					},
+					{
+						"name": "game",
+						"in": "query",
+						"description": "The game ID",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"example": "2d1716ff-a177-4e5f-ad56-a3fa15760af6"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "A player's info."
+					},
+					"404": {
+						"description": "Game or player not found."
+					},
+					"500": {
+						"description": "Internal Server Error"
+					}
+				}
+			}
+		}
+	},
+	"components": {
+		"securitySchemes": {
+			"bearerAuth": {
+				"type": "http",
+				"scheme": "bearer"
+			}
+		}
+	}
+}

@@ -1,0 +1,191 @@
+TN:
+SF:src\models\Game.ts
+FN:20,Game
+FN:27,get gameId
+FN:31,get gameCreationDate
+FN:35,get gamePlayers
+FN:39,get gameStatus
+FN:43,set gameStatus
+FN:47,getPlayerById
+FN:51,addPlayer
+FN:55,playersHaveMadeMoves
+FN:59,determineOutcome
+FNF:10
+FNH:6
+FNDA:5,Game
+FNDA:1,get gameId
+FNDA:0,get gameCreationDate
+FNDA:15,get gamePlayers
+FNDA:0,get gameStatus
+FNDA:0,set gameStatus
+FNDA:0,getPlayerById
+FNDA:3,addPlayer
+FNDA:1,playersHaveMadeMoves
+FNDA:1,determineOutcome
+DA:1,1
+DA:2,1
+DA:3,1
+DA:4,1
+DA:5,1
+DA:6,1
+DA:7,1
+DA:8,1
+DA:9,1
+DA:10,1
+DA:11,1
+DA:12,1
+DA:13,1
+DA:14,1
+DA:15,1
+DA:16,1
+DA:17,1
+DA:18,1
+DA:19,1
+DA:20,1
+DA:21,5
+DA:22,5
+DA:23,5
+DA:24,5
+DA:25,1
+DA:26,1
+DA:27,1
+DA:28,1
+DA:29,1
+DA:30,1
+DA:31,1
+DA:32,0
+DA:33,1
+DA:34,1
+DA:35,1
+DA:36,15
+DA:37,1
+DA:38,1
+DA:39,1
+DA:40,0
+DA:41,1
+DA:42,1
+DA:43,1
+DA:44,0
+DA:45,1
+DA:46,1
+DA:47,1
+DA:48,0
+DA:49,1
+DA:50,1
+DA:51,1
+DA:52,3
+DA:53,1
+DA:54,1
+DA:55,1
+DA:56,1
+DA:57,1
+DA:58,1
+DA:59,1
+DA:60,1
+DA:61,1
+DA:62,1
+DA:63,1
+DA:64,0
+DA:65,0
+DA:66,1
+DA:67,1
+DA:68,1
+DA:69,1
+DA:70,1
+DA:71,1
+DA:72,1
+DA:73,1
+DA:74,1
+DA:75,1
+LF:75
+LH:69
+BRDA:20,0,0,5
+BRDA:27,1,0,1
+BRDA:35,2,0,15
+BRDA:51,3,0,3
+BRDA:55,4,0,1
+BRDA:56,5,0,2
+BRDA:59,6,0,1
+BRDA:63,7,0,0
+BRDA:71,8,0,0
+BRF:9
+BRH:7
+end_of_record
+TN:
+SF:src\models\Player.ts
+FN:10,Player
+FN:17,get playerId
+FN:21,get playerName
+FN:25,get playerMove
+FN:29,get playerResult
+FN:33,set playerResult
+FN:37,set playerMove
+FNF:7
+FNH:0
+FNDA:0,Player
+FNDA:0,get playerId
+FNDA:0,get playerName
+FNDA:0,get playerMove
+FNDA:0,get playerResult
+FNDA:0,set playerResult
+FNDA:0,set playerMove
+DA:1,1
+DA:2,1
+DA:3,1
+DA:4,1
+DA:5,1
+DA:6,1
+DA:7,1
+DA:8,1
+DA:9,1
+DA:10,1
+DA:11,0
+DA:12,0
+DA:13,0
+DA:14,0
+DA:15,1
+DA:16,1
+DA:17,1
+DA:18,0
+DA:19,1
+DA:20,1
+DA:21,1
+DA:22,0
+DA:23,1
+DA:24,1
+DA:25,1
+DA:26,0
+DA:27,1
+DA:28,1
+DA:29,1
+DA:30,0
+DA:31,1
+DA:32,1
+DA:33,1
+DA:34,0
+DA:35,1
+DA:36,1
+DA:37,1
+DA:38,0
+DA:39,1
+DA:40,1
+DA:41,1
+DA:42,1
+LF:42
+LH:32
+BRF:0
+BRH:0
+end_of_record
+TN:
+SF:src\models\index.ts
+FNF:0
+FNH:0
+DA:1,1
+DA:2,1
+DA:3,1
+DA:4,1
+LF:4
+LH:4
+BRF:0
+BRH:0
+end_of_record
